@@ -1,0 +1,47 @@
+﻿@model PanopticoSA.Models.Factura
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+
+
+<h3>Seguro que desea Borrar?</h3>
+<div>
+    <h4>Factura</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdC)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdC.IdCuenta)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdClienteNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdClienteNavigation.IdCliente)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdFactura" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <hr />
+        <a asp-action="Index" class="btn btn-dark"> << Regresar</a>
+    </form>
+</div>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<PanopticoSA.Models.Cuenta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary"> + Nuevo Cuenta</a>
+</p>
+<table class="table table-hover table-responsive"
+       id="AreaTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Monto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaPago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaVencimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClienteNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Monto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaPago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaVencimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdClienteNavigation.IdCliente)
+                </td>
+                <td>
+                    <a class="btn btn-warning">@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })</a>
+                    <a class="btn btn-info"> @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })</a>
+                    <a class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#AreaTable').DataTable();
+            responsive: true,
+                paging: false,
+                    scrollY: 400,
+                        searching: false,
+                            select: true,
+
+                                ordering: false
+
+        });
+    </script>
+}

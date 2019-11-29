@@ -1,0 +1,26 @@
+﻿@model PanopticoSA.Models.Tecnico
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3>Seguro que desea Borrar?</h3>
+<div>
+    <h4>Tecnico</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdEmpleadoNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdEmpleadoNavigation.IdEmpleado)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdTecnico" />
+        <input type="submit" value="Borrar" class="btn btn-danger" />
+        <hr />
+        <a asp-action="Index" class="btn btn-dark"> << Regresar</a>
+    </form>
+</div>

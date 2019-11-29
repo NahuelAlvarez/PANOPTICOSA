@@ -1,0 +1,25 @@
+﻿@model PanopticoSA.Models.Tecnico
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdEmpleadoNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdEmpleadoNavigation.IdEmpleado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdTecnico" class="btn btn-warning">Modificar</a>
+    <hr />
+    <a asp-action="Index" class="btn btn-dark"> << Regresar</a>
+</div>
